@@ -34,7 +34,8 @@ public class BookController {
         return "Kalki";
     }
 
-    @GetMapping("/book/{ISBN}")
+    @RequestMapping(value = "/book/{ISBN}", method = RequestMethod.GET)
+    //@GetMapping("/book/{ISBN}")
     public ResponseEntity getBook(@PathVariable("ISBN") String ISBN) {
 
         Optional<Book> bookOptional =  libraryService.getBook(ISBN);
