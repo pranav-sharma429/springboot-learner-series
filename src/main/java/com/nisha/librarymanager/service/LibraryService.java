@@ -49,12 +49,12 @@ public class LibraryService {
         int newISBN = bookList.size() + 1;
         String ISBN = "ISBN00" + newISBN;
 
-        Book book = new Book(ISBN, bookRequest.getName(), bookRequest.getAuthor(),
-                bookRequest.getTotalPages(), bookRequest.getGenre(), bookRequest.getLang());
+//        Book book = new Book(ISBN, bookRequest.getName(), bookRequest.getAuthor(),
+//                bookRequest.getTotalPages(), bookRequest.getGenre(), bookRequest.getLang());
 
-        bookList.add(book);
+      //  bookList.add(book);
 
-        return book;
+        return null;
     }
 
     public boolean updateBook(String isbn, BookRequest bookRequest) {
@@ -68,7 +68,7 @@ public class LibraryService {
                 book.setGenre(bookRequest.getGenre());
                 book.setTotalPages(bookRequest.getTotalPages());
                 book.setName(bookRequest.getName());
-                book.setAuthor(bookRequest.getAuthor());
+               // book.setAuthor(bookRequest.getAuthor());
                 updated = true;
             }
         }

@@ -29,10 +29,10 @@ public class BookController {
         return 2300;
     }
 
-    @GetMapping("/author")
-    public String getBookAuthor() {
-        return "Kalki";
-    }
+//    @GetMapping("/author")
+//    public String getBookAuthor() {
+//        return "Kalki";
+//    }
 
     @RequestMapping(value = "/book/{ISBN}", method = RequestMethod.GET)
     //@GetMapping("/book/{ISBN}")

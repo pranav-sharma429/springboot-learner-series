@@ -4,20 +4,28 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class BookRequest {
-    @NotNull
+
+    @NotEmpty
+    private String isbn;
     @NotEmpty
     private String name;
     @NotNull
     private Integer totalPages;
-    @NotNull
     @NotEmpty
-    private String author;
-    @NotNull
+    private Integer authorId;
     @NotEmpty
     private String genre;
-    @NotNull
+    //@NotNull -> Not needed when you have NotEmpty
     @NotEmpty
     private String lang;
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
 
     public String getName() {
         return name;
@@ -35,14 +43,6 @@ public class BookRequest {
         this.totalPages = totalPages;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public String getGenre() {
         return genre;
     }
@@ -57,5 +57,13 @@ public class BookRequest {
 
     public void setLang(String lang) {
         this.lang = lang;
+    }
+
+    public Integer getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
     }
 }
