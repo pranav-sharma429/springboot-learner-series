@@ -11,6 +11,14 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    appType: 'webAppLinux'
+    WebAppName: 'PranavLinuxWebApp'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.war'
+    RuntimeStack: 'TOMCAT|8.5-jre8'
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -21,10 +29,3 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    appType: 'webAppLinux'
-    WebAppName: 'PranavLinuxWebApp'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.war'
-    RuntimeStack: 'TOMCAT|8.5-jre8'
